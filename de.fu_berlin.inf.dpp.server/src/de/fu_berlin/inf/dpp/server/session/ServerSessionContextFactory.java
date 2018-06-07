@@ -14,6 +14,6 @@ public class ServerSessionContextFactory extends SarosCoreSessionContextFactory 
     @Override
     public final void createNonCoreComponents(ISarosSession session,
         MutablePicoContainer container) {
-
+        container.addComponent(NegotiationHandler.class);
     }
 }
