@@ -1,5 +1,6 @@
 package de.fu_berlin.inf.dpp.server.session;
 
+import de.fu_berlin.inf.dpp.server.editor.ServerEditorManager;
 import org.picocontainer.MutablePicoContainer;
 
 import de.fu_berlin.inf.dpp.session.ISarosSession;
@@ -15,5 +16,6 @@ public class ServerSessionContextFactory extends SarosCoreSessionContextFactory 
     public final void createNonCoreComponents(ISarosSession session,
         MutablePicoContainer container) {
         container.addComponent(NegotiationHandler.class);
+        container.addComponent(ServerEditorManager.class);
     }
 }
