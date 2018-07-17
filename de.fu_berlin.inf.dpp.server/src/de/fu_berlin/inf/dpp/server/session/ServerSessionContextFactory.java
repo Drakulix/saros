@@ -17,5 +17,8 @@ public class ServerSessionContextFactory extends SarosCoreSessionContextFactory 
         MutablePicoContainer container) {
         container.addComponent(NegotiationHandler.class);
         container.addComponent(ServerEditorManager.class);
+        container.addComponent(FileActivityExecutor.class);
+        container.addComponent(FolderActivityExecutor.class);
+        container.addComponent(TextEditActivityExecutor.class);
     }
 }
