@@ -2,6 +2,7 @@ package de.fu_berlin.inf.dpp.server;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import de.fu_berlin.inf.dpp.filesystem.IWorkspace;
 import de.fu_berlin.inf.dpp.server.console.InviteCommand;
@@ -65,6 +66,9 @@ public class SarosServer {
         context.initialize();
 
         connectToXMPPServer();
+
+        context.getComponent(ISarosSessionManager.class).startSession(
+            Collections.emptyMap());
     }
 
     public void initConsole(ServerConsole console) {
