@@ -3,8 +3,10 @@ package de.fu_berlin.inf.dpp.server;
 import java.net.URL;
 import java.util.ArrayList;
 
+import de.fu_berlin.inf.dpp.filesystem.IWorkspace;
 import de.fu_berlin.inf.dpp.server.console.InviteCommand;
 import de.fu_berlin.inf.dpp.server.console.ServerConsole;
+import de.fu_berlin.inf.dpp.server.console.ShareCommand;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -67,6 +69,8 @@ public class SarosServer {
 
     public void initConsole(ServerConsole console) {
         console.registerCommand(new InviteCommand(context.getComponent(ISarosSessionManager.class)));
+        console.registerCommand(new ShareCommand(context.getComponent(ISarosSessionManager.class), context.getComponent(
+            IWorkspace.class)));
     }
 
     public void stop() {
