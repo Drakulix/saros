@@ -3,6 +3,7 @@ package de.fu_berlin.inf.dpp.server;
 import java.net.URL;
 import java.util.ArrayList;
 
+import de.fu_berlin.inf.dpp.server.console.InviteCommand;
 import de.fu_berlin.inf.dpp.server.console.ServerConsole;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -65,7 +66,7 @@ public class SarosServer {
     }
 
     public void initConsole(ServerConsole console) {
-        // no commands (yet) to register
+        console.registerCommand(new InviteCommand(context.getComponent(ISarosSessionManager.class)));
     }
 
     public void stop() {
